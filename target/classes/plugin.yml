@@ -1,0 +1,24 @@
+name: DeniableBungeecord
+version: 1.0
+author: Asylx
+main: me.Asylx.Main
+
+commands:
+  s:
+    description: Staffchat for staff.
+    aliases:
+      - staffchat
+  message:
+    description: Messaging service
+    aliases:
+      - msg
+  server:
+    description: Server
+  find:
+    description: Find a player
+  discord:
+    description: Discord
+  store:
+    description: Store
+  help:
+    description: Help command
