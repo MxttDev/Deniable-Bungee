@@ -22,3 +22,9 @@ commands:
     description: Store
   help:
     description: Help command
+  kick:
+    description: Kick command
+  Ban:
+    description: Ban cmd
+  Unban:
+    description: Unban cmd

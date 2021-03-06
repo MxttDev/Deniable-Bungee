@@ -30,7 +30,7 @@ public class Staffchat extends Command {
 
         String serverName = p.getServer().getInfo().getName().toUpperCase();
 
-        if (p.hasPermission(Permissions.StaffPermissions)) {
+        if (p.hasPermission(Permissions.StaffChatPermissions)) {
 
             if (args.length >= 1) {
                 StringBuilder str = new StringBuilder();
@@ -41,7 +41,7 @@ public class Staffchat extends Command {
                 String format = "&C[STAFF] &6["+serverName+"] "+ Mongo.getData(p).get("Prefix")+p.getName()+"&7: &b"+msg;
 
                 for (ProxiedPlayer player : ProxyServer.getInstance().getPlayers()) {
-                    if (player.hasPermission(Permissions.StaffPermissions)) {
+                    if (player.hasPermission(Permissions.StaffChatPermissions)) {
                         Utils.Send(player, format);
                     }
                 }

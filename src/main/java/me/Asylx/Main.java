@@ -7,8 +7,14 @@ import me.Asylx.Commands.Misc.Discord;
 import me.Asylx.Commands.Misc.Help;
 import me.Asylx.Commands.Misc.Store;
 import me.Asylx.Commands.Server;
+import me.Asylx.Commands.StaffOnly.Punishments.Ban;
+import me.Asylx.Commands.StaffOnly.Punishments.Kick;
+import me.Asylx.Commands.StaffOnly.Punishments.Unban;
 import me.Asylx.Commands.StaffOnly.Staffchat;
+import me.Asylx.Events.ServerStop;
+import me.Asylx.Events.onJoin;
 import me.Asylx.Utils.Mongo;
+import me.Asylx.Utils.MongoPunishment;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 
@@ -19,8 +25,7 @@ import java.net.UnknownHostException;
 public class Main extends Plugin {
 
     private static Main instance;
-    public Configuration config;
-    private File file;
+    public Configuration configuration;
 
     public Main() throws IOException {
     }
@@ -31,6 +36,7 @@ public class Main extends Plugin {
         getLogger().info("DENIABLE PLUGIN LOADED!");
         try {
             Mongo.SetupMongoDB();
+            MongoPunishment.SetupMongoDB();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
@@ -47,6 +53,12 @@ public class Main extends Plugin {
         getProxy().getPluginManager().registerCommand(this, new Discord()); // /MESSAGE
         getProxy().getPluginManager().registerCommand(this, new Store()); // /MESSAGE
         getProxy().getPluginManager().registerCommand(this, new Help()); // /MESSAGE
+        getProxy().getPluginManager().registerCommand(this, new Kick()); // KICK MSG
+        getProxy().getPluginManager().registerCommand(this, new Ban()); // KICK MSG
+        getProxy().getPluginManager().registerCommand(this, new Unban()); // KICK MSG
+
+        getProxy().getPluginManager().registerListener(this, new ServerStop());
+        getProxy().getPluginManager().registerListener(this, new onJoin());
 
     }
 
