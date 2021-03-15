@@ -21,7 +21,9 @@ public class Punishments {
         String mesg = "&6&lYOU HAVE BEEN BANNED!&r\n\n&7Staff member: &e"+p.getName()+"\n&7Reason: &e"+reason+"\n&7Length: &e"+length.toUpperCase()+"\n\n&7Discord: &ediscord.deniable.net\n\n&6&lDENIABLE";
         target.disconnect(new TextComponent(Utils.Colour(mesg)));
 
-        MongoPunishment.createBanProfile(target, reason, expires);
+        String name = target.getName();
+        UUID uuid = target.getUniqueId();
+        MongoPunishment.createBanProfile(name, uuid, reason, expires);
 
     }
 
@@ -115,8 +117,6 @@ public class Punishments {
 
     public static void AlreadyBan(ProxiedPlayer p, String reason, long expires) {
         long Date = expires;
-
-        System.out.println("test");
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date(expires);

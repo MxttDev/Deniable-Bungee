@@ -68,17 +68,15 @@ public class MongoPunishment {
 
     }
 
-    public static void createBanProfile(ProxiedPlayer p, String reason, long current) {
-        Document playerdata = (Document) mongoCollection.find(new Document("UUID", p.getUniqueId().toString())).first();
+    public static void createBanProfile(String username, UUID uuid, String reason, long current) {
+        String value = Utils.ConvertUUID(uuid);
 
         Document data = new Document();
 
-        UUID uuid = p.getUniqueId();
-        String value = Utils.ConvertUUID(uuid);
 
 
         data.append("UUID", value);
-        data.append("Name", p.getName());
+        data.append("Name", username);
         data.append("Reason", reason);
         data.append("Expires", current);
 

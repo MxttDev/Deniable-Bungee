@@ -19,7 +19,7 @@ public class Unban extends Command {
     @Override
     public void execute(CommandSender sender, String[] args) {
         ProxiedPlayer p = (ProxiedPlayer) sender;
-        if (p.hasPermission(Permissions.StaffKickPermissions)) {
+        if (p.hasPermission(Permissions.StaffUnbanPermission)) {
             if (args.length == 1) {
                String uuid = Utils.getUuid(args[0]);
                String value = uuid.replace("-", "");

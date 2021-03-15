@@ -26,7 +26,7 @@ public class Discord extends Command {
 
         String msg = "&7Click here to join our &eDiscord&7!";
         TextComponent message = new TextComponent(ChatColor.translateAlternateColorCodes('&', msg));
-        message.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.gg/wdbpffuuvf"));
+        message.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "http://discord.phasemc.net/"));
         message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click me!").color(ChatColor.GRAY).create()));
 
         Utils.Send(p, "&c ");

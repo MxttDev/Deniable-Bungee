@@ -29,6 +29,12 @@ public class Mongo {
         return PlayerData;
     }
 
+    public static Document getDataFromUUID(String UUID) {
+        String value =  UUID.replace("-", "");
+        Document PlayerData = (Document) mongoCollection.find(new Document("UUID", value)).first();
+        return PlayerData;
+    }
+
     public static void InsertPlayerData(ProxiedPlayer p, String object, Object newValueObject) {
         Document PlayerData = (Document) mongoCollection.find(new Document("UUID", p.getUniqueId().toString())).first();
 

@@ -26,10 +26,6 @@ public class Ban extends Command {
             if (args.length >= 3) {
                 ProxiedPlayer target = ProxyServer.getInstance().getPlayer(args[0]);
 
-                if (target == null) {
-                    Utils.Send(p, "&cCannot found player: "+args[0]);
-                    return;
-                }
 
                 if (MongoPunishment.getData(target) != null) {
                     Utils.Send(p, "&3This player is already banned!");

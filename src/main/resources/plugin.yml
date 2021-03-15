@@ -28,3 +28,6 @@ commands:
     description: Ban cmd
   Unban:
     description: Unban cmd
+  announce:
+    description: announce
+

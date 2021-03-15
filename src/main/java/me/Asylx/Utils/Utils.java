@@ -1,12 +1,15 @@
 package me.Asylx.Utils;
 
 import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Random;
 import java.util.UUID;
 
 import org.apache.commons.io.IOUtils;
@@ -16,6 +19,7 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 public class Utils {
+    public static int num;
 
         public static void Send(ProxiedPlayer p, String message) {
             p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', message)));
@@ -44,8 +48,5 @@ public class Utils {
         String value = uuid.toString().replace("-", "");
         return value;
     }
-
-
-
 
 }
